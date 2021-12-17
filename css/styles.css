@@ -147,3 +147,26 @@ transition: margin 0.15s;
         padding-left: 0;
     }
 }
+
+/* Icons */
+/*OO CSS - separating structure from skin. By using different skins we can combine those in multiple ways*/
+.icon {
+    width: 40px;
+    height: 40px;
+}
+
+.icon--primary {
+    fill: var(--color-primary);
+}
+
+.icon-container {
+    background: #f3f9fa;
+    width: 64px;
+    height: 64px;
+    border-radius: 100%;
+    display: inline-flex;
+    /* inline block but not block because if we put it next to another element, we will line break it. 
+    inline flex to put in the center togeter with jc and ai*/
+    justify-content: center;
+    align-items: center;
+}
