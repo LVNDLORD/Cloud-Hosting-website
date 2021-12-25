@@ -223,7 +223,7 @@ transition: margin 0.15s;
     font-weight: 600;
     margin: 1rem 0;
     outline: 0;
-    padding: 2rem 3rem;
+    padding: 2rem 4vw; /*4% of the width of the viewport*/
     text-transform: uppercase;
     white-space: nowrap;
     text-align: center;
@@ -316,7 +316,7 @@ transition: margin 0.15s;
     border: 0;
     flex-grow: 1;
     padding: 1.5rem 2rem;
-    width: 0;
+    width: 0; /*otherwise will be a bug, cause Chrome assign default width value that doesn't fit*/
 }
 
 .input-group .btn {
@@ -791,8 +791,9 @@ font-size: 3rem;
 }
 
 .block-domain__prices {
+    color: var(--color-headings);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 6rem); /*6 rem is height for each row*/
     font-size: 2rem;
     font-weight: 600;
