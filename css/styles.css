@@ -17,6 +17,11 @@ box-sizing: border-box;
 }
 
 /* Typography */
+::selection {
+    background: var(--color-primary);
+    color: #fff;
+}
+
 html {
     font-size: 62.5%;
 }
@@ -43,7 +48,8 @@ h2 {
 }
 
 h3 {
-    font-size: 3rem;   
+    font-size: 3rem; 
+    font-weight: 500;  
 }
 
 p {
@@ -136,7 +142,6 @@ transition: margin 0.15s;
 .list {
     list-style: none;
     padding-left: 0; 
-    color: var(--color-headings);
 }
 
 .list--inline .list__item {
@@ -147,6 +152,7 @@ transition: margin 0.15s;
 .list--tick {
     list-style-image: url(../images/tick.svg);
     padding-left: 3rem;
+    color: var(--color-headings);
 }
 
 .list--tick .list__item {  
@@ -435,6 +441,7 @@ transition: margin 0.15s;
 
 .media {
     display: flex;
+    margin-bottom: 4rem;
 }
 
 .media__title {
@@ -660,18 +667,20 @@ font-size: 3rem;
     color: #7b858b;
 }
 
-.block--dark .block__heading {
+.block--dark h1,
+.block--dark h2,
+.block--dark h3 {
     color: #fff;
 }
 
 .block--skewed-right {
     padding-bottom: calc(var(--padding-vertical) + 4rem);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%); /*x y*/
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%); /*x y*/
 }
 
 .block--skewed-left {
     padding-bottom: calc(var(--padding-vertical) + 4rem);
-    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); /*x y*/
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); /*x y*/
 }
 
 .container {
@@ -748,10 +757,6 @@ font-size: 3rem;
 }
 
 /* Hero */
-.hero {
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-}
-
 
 .hero__tagline {
     font-size: 2rem;
@@ -838,5 +843,25 @@ font-size: 3rem;
         order: 2; /* even targetting the 2nd, 4th, 6th feature etc. 
         in feature__ content we sweeping the order to 2. By default the order of the content is 1. 
         image will take the first position of the first item in the grid */
+    }
+}
+
+/* Showcase Block */
+.block-showcase__image > img { /*because we want to apply to img but not picture element itself so it's responsive*/
+    width: 100%; 
+}
+
+@media screen and (min-width: 768px) {
+    .block-showcase .grid {
+        grid-template-columns: 50% 50%;
+    }
+
+    .block-showcase__image {
+        justify-self: end;
+    }
+
+    .block-showcase__image > img {
+        width: auto; /*image will be displayed in its actual size*/
+        max-width: 700px;
     }
 }
